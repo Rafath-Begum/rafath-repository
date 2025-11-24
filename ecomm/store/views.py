@@ -17,7 +17,7 @@ def login_view(request):
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
-
+        logger.info(f"login done by : {username}")
         logger.debug(f"Login attempt for user: {username}")
         user = authenticate(request, username=username, password=password)
         if user:
