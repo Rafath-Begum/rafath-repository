@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Library Management</title>
+</head>
+<body>
+
+<h2>Library Management System</h2>
+
+{% if session.user %}
+    Logged in as <b>{{ session.user }}</b> ({{ session.role }})
+    | <a href="{{ url_for('logout') }}">Logout</a>
+{% endif %}
+
+<hr>
+
+{% with messages = get_flashed_messages() %}
+  {% for msg in messages %}
+    <p style="color:red">{{ msg }}</p>
+  {% endfor %}
+{% endwith %}
+
+{% block content %}{% endblock %}
+
+</body>
+</html>

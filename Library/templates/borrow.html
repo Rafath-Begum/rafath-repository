@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h3>Borrow Book</h3>
+
+<form method="POST">
+    Phone Number:
+    <input type="text" name="phone" required><br><br>
+
+    Return Duration:
+    <select name="days">
+        <option value="7">1 Week</option>
+        <option value="14">2 Weeks</option>
+    </select><br><br>
+
+    <button type="submit">Confirm Borrow</button>
+</form>
+
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+<h4>Register</h4>
+
+<form method="POST">
+    <input class="form-control mb-2" name="username" placeholder="Username" required>
+    <input class="form-control mb-2" type="password" name="password" placeholder="Password" required>
+    <button class="btn btn-success">Register</button>
+    <a href="{{ url_for('login') }}">Login</a>
+</form>
+
+{% for msg in get_flashed_messages() %}
+<p class="text-danger">{{ msg }}</p>
+{% endfor %}
+{% endblock %}

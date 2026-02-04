@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form method="POST" name="studentForm" onsubmit="return validateForm()">
+
+    <div class="mb-3">
+        <label>Name</label>
+        <input type="text" name="name" class="form-control"
+               value="{{ student.name if student else '' }}">
+    </div>
+
+    <div class="mb-3">
+        <label>Email</label>
+        <input type="email" name="email" class="form-control"
+               value="{{ student.email if student else '' }}">
+    </div>
+
+    <div class="mb-3">
+        <label>Gender</label><br>
+        <input type="radio" name="gender" value="Male"
+        {% if student and student.gender == 'Male' %}checked{% endif %}> Male
+
+        <input type="radio" name="gender" value="Female"
+        {% if student and student.gender == 'Female' %}checked{% endif %}> Female
+    </div>
+
+    <div class="mb-3">
+        <label>Course</label><br>
+        <input type="radio" name="course" value="Python"
+        {% if student and student.course == 'Python' %}checked{% endif %}> Python
+
+        <input type="radio" name="course" value="Flask"
+        {% if student and student.course == 'Flask' %}checked{% endif %}> Flask
+
+        <input type="radio" name="course" value="Django"
+        {% if student and student.course == 'Django' %}checked{% endif %}> Django
+    </div>
+
+    <button class="btn btn-primary">Submit</button>
+    <a href="{{ url_for('index') }}" class="btn btn-secondary">Back</a>
+</form>
+
+<!-- JavaScript -->
+<script src="{{ url_for('static', filename='validation.js') }}"></script>
+{% endblock %}
