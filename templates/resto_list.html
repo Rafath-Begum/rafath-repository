@@ -1,0 +1,14 @@
+{% extends "delivery/base.html" %}
+{% block content %}
+<h2>Restaurants</h2>
+<ul>
+  {% for r in restaurants %}
+    <li>
+      <a href="{% url 'delivery:menu_detail' r.pk %}">{{ r.name }}</a>
+      <p>{{ r.address }}</p>
+    </li>
+  {% empty %}
+    <li>No restaurants yet.</li>
+  {% endfor %}
+</ul>
+{% endblock %}

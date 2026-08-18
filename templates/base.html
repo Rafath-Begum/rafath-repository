@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Food Delivery</title>
+  <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+</head>
+<body>
+<header>
+  <h1><a href="{% url 'delivery:restaurant_list' %}">Food Delivery</a></h1>
+  <nav>
+    <a href="{% url 'delivery:cart' %}">Cart</a>
+    {% if user.is_authenticated %}
+      <span>Hi {{ user.username }}</span> | <a href="{% url 'admin:logout' %}">Logout</a>
+    {% else %}
+      <a href="{% url 'login' %}">Login</a>
+    {% endif %}
+  </nav>
+</header>
+<main>
+  {% block content %}{% endblock %}
+</main>
+<footer>
+  <p>&copy; Food Delivery</p>
+</footer>
+</body>
+</html>
